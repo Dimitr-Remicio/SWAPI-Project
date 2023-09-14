@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+        </div>
+      
+      </div>
+
+    <header>
+        <button id="myBtn">Open Modal</button>
+      <form class="head" onsubmit="">
+
+
+        <select name="type" class="select" id="">
+          <option value="people">people</option>
+          <option value="planets">planets</option>
+          <option value="films">films</option>
+          <option value="species">species</option>
+          <option value="vehicles">vehicles</option>
+          <option value="starships">starships</option>
+        </select>
+        <div class="search-form">
+          <input
+            type="search"
+            value=""
+            placeholder="Search"
+            class="search-input"
+          />
+          <button type="submit" class="search-button">
+            <svg class="submit-button">
+              <use
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="#search"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </header>
+
+    <main class="itemshow">
+
+      <div class="scroll" id="style-scroll">
+        <div class="content">
+          <div class="container">
+            <h1>people</h1>
+            <div class="people">
+              <div class="content">
+                <div class="list" id="people"></div>
+              </div>
+              <div class="buttons" id="buttonpeople"></div>
+            </div>
+          </div>
+          <div class="container">
+            <h1>planets</h1>
+            <div class="planets">
+              <div class="content">
+                <div class="list" id="planets"></div>
+              </div>
+              <div class="buttons" id="buttonplanet"></div>
+            </div>
+          </div>
+          <div class="container">
+            <h1>starShips</h1>
+            <div class="strShips">
+              <div class="content">
+                <div class="list" id="starships"></div>
+              </div>
+              <div class="buttons" id="buttonstrships"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-details" id="style-scroll">
+        <div class="details     ">
+          
+        </div>
+      </div>
+    
+      
+    </main>
+
+
+
+    <button id="detailsOpen" onclick="showdetails()">details</button>
+
+    <footer></footer>
+
+    <!-- <script type="module" src="./src/js/results.js"></script> -->
+    <script type="module" src="./src/js/item.js"></script>
+    <script type="module" src="./src/js/Fetch-startShips.js"></script>
+    <script type="module" src="./src/js/Fetch-planets.js"></script>
+    <script type="module" src="./src/js/Fetch-people.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="./src/js/modal.js"></script>
+  </body>
+</html>
