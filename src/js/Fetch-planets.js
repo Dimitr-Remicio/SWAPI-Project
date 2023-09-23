@@ -9,6 +9,12 @@ let urlPeople = "https://swapi.dev/api/planets/?page=1";
 const PATH_PARAMS = "people/";
 const BASE_URL = "https://swapi.dev/api/";
 
+function itemPeople(info) {
+  console.log(info);
+  const infoJson = JSON.parse(info);
+  document.getElementById('titleSelec').innerHTML = infoJson.name
+}
+
 function fetchPeople(url) {
   fetch(url)
     .then((response) => {
@@ -39,13 +45,13 @@ const DataPeople = async (data) => {
       const resp = await fetch(index.url);
       const resul = await resp.json();
       let templateHtml = `
-            <div class="ppl-item">
+            <div class="ppl-item" id="Anim_tion">
                 <div>
                     <img src="https://i.postimg.cc/m298VQd5/Recurso-5.png" alt="img not found">
                 </div>
                 <h2>${resul.name}</h2>
-                <a href="${resul.name}">link</a>
-                <button id="myBtn">Open Modal</button>
+                <button onclick='itemPlanets(${JSON.stringify(JSON.stringify(resul))})'>Click me!</button>
+
 
                 </div>
             `;

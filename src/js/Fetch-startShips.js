@@ -7,13 +7,19 @@ let btnNextstrShip;
 let btnPreviousstrShip;
 let urlStarShips = "https://swapi.dev/api/starships/?page=1";
 
+function itemStarShips(info) {
+  console.log(info);
+  const infoJson = JSON.parse(info);
+  document.getElementById('titleSelec').innerHTML = infoJson.name
+}
+
 export function fetchStarShips(url) {
   fetch(url)
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-    //   console.log("Data basement: ", data);
+      //   console.log("Data basement: ", data);
       DataPeople(data.results);
 
       btnNextstrShip = data.next
@@ -36,16 +42,17 @@ const DataPeople = async (data) => {
     for (let index of data) {
       const resp = await fetch(index.url);
       const resul = await resp.json();
-    //   console.log(resul);
+      //   console.log(resul);
       let templateHtml = `
-            <div class="ppl-item">
-            <div>
-            <img src="https://i.postimg.cc/m298VQd5/Recurso-5.png" alt="img not found">
-        </div>
-            <h2>${resul.name}</h2>
-            <a href="${resul.name}">link</a>
-        </div>
-                </div>
+            <div class="ppl-item" id="Anim_tion"> 
+              <div>
+                <img src="https://i.postimg.cc/m298VQd5/Recurso-5.png" alt="img not found">
+              </div>
+              <h2>${resul.name}</h2>
+              <button onclick='itemStarShips(${JSON.stringify(
+                JSON.stringify(resul)
+              )})'>Click me!</button>
+            </div>
             `;
       starships.innerHTML += templateHtml;
       // const markup = resul.map(() => {

@@ -4,54 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/css/styles.css" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>SWapi-Project</title>
   </head>
   <body>
     <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
-        </div>
-      
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modal-cont"></div>
       </div>
+    </div>
 
     <header>
-        <button id="myBtn">Open Modal</button>
-      <form class="head" onsubmit="">
-
-
-        <select name="type" class="select" id="">
-          <option value="people">people</option>
-          <option value="planets">planets</option>
-          <option value="films">films</option>
-          <option value="species">species</option>
-          <option value="vehicles">vehicles</option>
-          <option value="starships">starships</option>
-        </select>
+      <form class="head" onsubmit="eventclick">
+        <div class="search-menu">
+          <select name="filter" id="filter">
+            <option value="">None</option>
+            <option value="People">People</option>
+            <option value="Films">Films</option>
+            <option value="Planets">Planets</option>
+            <option value="Species">Species</option>
+            <option value="Starships">Starships</option>
+            <option value="Vehicles">Vehicles</option>
+          </select>
+        </div>
         <div class="search-form">
           <input
             type="search"
             value=""
+            id="search"
             placeholder="Search"
             class="search-input"
           />
-          <button type="submit" class="search-button">
-            <svg class="submit-button">
-              <use
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="#search"
-              ></use>
-            </svg>
+          <button type="submit" class="search-button" id="buttonSearch">
           </button>
         </div>
       </form>
     </header>
 
     <main class="itemshow">
-
-      <div class="scroll" id="style-scroll">
+      <div class="scroll Home scroll-Style">
         <div class="content">
           <div class="container">
             <h1>people</h1>
@@ -83,27 +81,25 @@
         </div>
       </div>
 
-      <div class="scroll-details" id="style-scroll">
-        <div class="details     ">
-          
+      <div class="scroll-Style details" id="statedetail">
+        <div class="scroll-details">
+          <div class="cntnertitle">
+            <button onclick="HiddeItem()" class="btn"><span>close</span></button>
+          </div>
+          <div id="contentSelec"></div>
         </div>
       </div>
-    
-      
     </main>
-
-
 
     <button id="detailsOpen" onclick="showdetails()">details</button>
 
     <footer></footer>
-
+    <script src="./src/js/item.js"></script>
+    <script src="./src/js/search.js"></script>
+    <script src="./src/js/modal.js"></script>
     <!-- <script type="module" src="./src/js/results.js"></script> -->
-    <script type="module" src="./src/js/item.js"></script>
     <script type="module" src="./src/js/Fetch-startShips.js"></script>
     <script type="module" src="./src/js/Fetch-planets.js"></script>
     <script type="module" src="./src/js/Fetch-people.js"></script>
-    <script type="module" src="index.js"></script>
-    <script type="module" src="./src/js/modal.js"></script>
   </body>
 </html>
