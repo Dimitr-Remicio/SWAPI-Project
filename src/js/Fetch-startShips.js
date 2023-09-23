@@ -10,29 +10,31 @@ let urlStarShips = "https://swapi.dev/api/starships/?page=1";
 function itemStarShips(info) {
   console.log(info);
   const infoJson = JSON.parse(info);
-  document.getElementById('titleSelec').innerHTML = infoJson.name
+  document.getElementById("titleSelec").innerHTML = infoJson.name;
 }
 
 export function fetchStarShips(url) {
-  fetch(url)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      //   console.log("Data basement: ", data);
-      DataPeople(data.results);
+  setTimeout(() => {
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        //   console.log("Data basement: ", data);
+        DataPeople(data.results);
 
-      btnNextstrShip = data.next
-        ? `<button class="btn" data-url=${data.next}>⏩</button>`
-        : "";
-      btnPreviousstrShip = data.previous
-        ? `<button class="btn" data-url=${data.previous}>⏮</button>`
-        : "";
-      buttons.innerHTML = btnPreviousstrShip + " " + btnNextstrShip;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+        btnNextstrShip = data.next
+          ? `<button class="btn" data-url=${data.next}>⏩</button>`
+          : "";
+        btnPreviousstrShip = data.previous
+          ? `<button class="btn" data-url=${data.previous}>⏮</button>`
+          : "";
+        buttons.innerHTML = btnPreviousstrShip + " " + btnNextstrShip;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, 1000);
 }
 fetchStarShips(urlStarShips);
 
